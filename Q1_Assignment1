@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Problem1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+/*problem1
+       double radius = input.nextDouble();
+
+      double area = Math.PI * Math.pow(radius, 2);
+      double circumference = 2 * Math.PI * radius;
+
+        System.out.printf("Area = %.2f%n", area);
+        System.out.printf("Circumference = %.2f%n", circumference);
+
+        input.close();
+/*problem2
+       double unitPrice = input.nextDouble();
+      int quantity = input.nextInt();
+
+        final double TAX_RATE = 0.14;
+
+        double subtotal = unitPrice * quantity;
+       double tax = subtotal * TAX_RATE;
+        double total = subtotal + tax;
+
+        System.out.printf("Subtotal = %.2f, Tax = %.2f, Total = %.2f%n",
+                subtotal, tax, total);
+
+        input.close();
+/*problem3
+        int score1 = input.nextInt();
+        int score2 = input.nextInt();
+        int score3 = input.nextInt();
+
+        double average = (score1 + score2 + score3) / 3.0;
+
+        long roundedAverage = Math.round(average);
+
+        System.out.println(roundedAverage);
+        System.out.printf("%.2f%n", average);
+
+        input.close();
+    /*problem4
+int days = input.nextInt();
+
+        int weeks = days / 7;
+        int remainingDays = days % 7;
+
+        System.out.printf("%d weeks and %d days%n", weeks, remainingDays);
+
+        input.close();
+    }
+}
