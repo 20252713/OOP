@@ -1,0 +1,166 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication61;
+/**
+ * 
+ * 
+ * 
+ *
+ * @author STUDENT
+ */
+
+//Problem 1
+
+/*import java.util.Scanner;
+
+public class JavaApplication61 {
+    public static int getInt(Scanner s, String prompt) {
+        System.out.println(prompt);
+        int number = s.nextInt();
+        return number;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num = getInt(input, "Enter Your Age: ");
+
+        System.out.println("Recorded Age: " + num);
+
+        input.close();
+    }
+}*/
+
+//Problem 2
+
+/*import java.util.Scanner;
+
+public class javaApplication61{
+
+    public static double calculateDistance(
+            double x1, double y1, double x2, double y2) {
+
+        double distance = Math.sqrt(
+                Math.pow(x2 - x1, 2)
+                + Math.pow(y2 - y1, 2)
+        );
+
+        return distance;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter x1: ");
+        double x1 = input.nextDouble();
+
+        System.out.print("Enter y1: ");
+        double y1 = input.nextDouble();
+
+        System.out.print("Enter x2: ");
+        double x2 = input.nextDouble();
+
+        System.out.print("Enter y2: ");
+        double y2 = input.nextDouble();
+
+        double distance = calculateDistance(x1, y1, x2, y2);
+
+        System.out.printf("Distance: %.2f%n", distance);
+
+        input.close();
+    }
+}*/
+
+//Problem 3
+
+/*import java.util.Scanner;
+
+public class javaApplication61{
+
+    public static double computeArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public static double computeArea(double length, double width) {
+        return length * width;
+    }
+
+    public static double computeArea(
+            double base, double height, boolean isTriangle) {
+
+        if (isTriangle) {
+            return 0.5 * base * height;
+        }
+
+        return base * height;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Circle Area = " + computeArea(5.0));
+
+        System.out.println("Rectangle Area = " + computeArea(4.0, 6.));
+
+        System.out.println("Triangle Area = " + computeArea(4.0, 6.0, true));
+    }
+
+}*/
+
+//Problem 4
+
+/*import java.util.Scanner;
+
+public class javaApplication61{
+
+    public static boolean isValidPassword(String password) {
+
+        if (password.length() < 8) {
+            return false;
+        }
+
+        int digitCount = 0;
+        boolean hasUppercase = false;
+
+    
+        for (int i = 0; i < password.length(); i++) {
+
+            char ch = password.charAt(i);
+
+            if (!Character.isLetterOrDigit(ch)) {
+                return false;
+            }
+
+            if (Character.isDigit(ch)) {
+                digitCount++;
+            }
+
+            if (Character.isUpperCase(ch)) {
+                hasUppercase = true;
+            }
+        }
+        
+        return digitCount >= 2 && hasUppercase;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a password: ");
+        String password = input.nextLine();
+
+        if (isValidPassword(password)) {
+            System.out.println("Valid Password");
+        } else {
+            System.out.println("Invalid Password");
+        }
+
+        input.close();
+    }
+
+    }*/
