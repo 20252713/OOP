@@ -1,0 +1,28 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mavenproject2;
+import java.util.Scanner;
+ 
+public class Mavenproject2 {
+ 
+    // Prints the prompt, reads a double using the given Scanner, and returns it
+    public static double getDouble(Scanner s, String prompt) {
+        System.out.print(prompt);
+        return s.nextDouble();
+    }
+ 
+    // F = C * 9/5 + 32  (9.0 avoids integer division)
+    public static double celsiusToFahrenheit(double c) {
+        return c * 9.0 / 5 + 32;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        double celsius = getDouble(s, "Enter temperature in Celsius: ");
+        double fahrenheit = celsiusToFahrenheit(celsius);
+        System.out.printf("Fahrenheit: %.2f%n", fahrenheit);
+        s.close();
+    }
+}
