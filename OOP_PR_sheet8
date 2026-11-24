@@ -1,0 +1,123 @@
+
+
+class Employee {
+    private String name;
+    private int id;
+    private double salary;
+
+    public Employee(String name, int id, double salary) {
+        this.name = name;
+        this.id = id;
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double calculateBonus() {
+        return salary * 0.10;
+    }
+
+    public double calculateBonus(double percentage) {
+        return getSalary() * percentage / 100;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("ID: " + id);
+        System.out.println("Salary: " + salary);
+        System.out.println("Bonus: " + calculateBonus());
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+               ", ID: " + id +
+               ", Salary: " + salary;
+    }
+}
+
+class Manager extends Employee {
+    private String department;
+    private double allowance;
+
+    public Manager(String name, int id, double salary,
+                   String department, double allowance) {
+        super(name, id, salary);
+        this.department = department;
+        this.allowance = allowance;
+    }
+
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Department: " + department);
+        System.out.println("Allowance: " + allowance);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+               ", Department: " + department +
+               ", Allowance: " + allowance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Employee e1 = new Employee("Ahmed", 100, 2000);
+
+        Manager m1 = new Manager(
+            "Mohamed", 130, 10000,
+            "IT", 2000
+        );
+
+        Employee e2 = new Manager(
+            "Ali", 150, 9000,
+            "Finance", 1800
+        );
+
+        System.out.println("----- Employee -----");
+        e1.displayInfo();
+
+        System.out.println("Ahmed's Bonus (20%): "
+                           + e1.calculateBonus(20));
+        System.out.println("----- Manager -----");
+        m1.displayInfo();
+
+        System.out.println("Manager Information:");
+        System.out.println(m1);
+
+        System.out.println("Manager Bonus (35%): "
+                           + m1.calculateBonus(35));
+
+        System.out.println("----- Parent Reference to Manager -----");
+        e2.displayInfo();
+
+        System.out.println("Ali's Bonus (20%): "
+                           + e2.calculateBonus(20));
+    }
+}
+
