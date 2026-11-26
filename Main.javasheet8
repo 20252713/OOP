@@ -1,0 +1,224 @@
+package javaapplication67;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+class LibraryItem {
+
+    private int itemID;
+    private String title;
+    private int publicationYear;
+
+    LibraryItem(int itemID, String title, int publicationYear) {
+        this.itemID = itemID;
+        this.title = title;
+        this.publicationYear = publicationYear;
+    }
+
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public double calculateLateFee(int days) {
+        return days * 5;
+    }
+
+    public double calculateLateFee(int days, double discount) {
+        return calculateLateFee(days) * (1 - discount);
+    }
+
+    public void displayInfo() {
+        System.out.println("Item ID: " + itemID);
+        System.out.println("Title: " + title);
+        System.out.println("Publication Year: " + publicationYear);
+    }
+
+    @Override
+    public String toString() {
+        return "Item ID: " + itemID +
+               ", Title: " + title +
+               ", Publication Year: " + publicationYear;
+    }
+}
+
+
+class PrintedBook extends LibraryItem {
+
+    private final String author;
+    private final int numberOfPages;
+
+    PrintedBook(int itemID, String title, int publicationYear,
+                String author, int numberOfPages) {
+
+        super(itemID, title, publicationYear);
+
+        this.author = author;
+        this.numberOfPages = numberOfPages;
+    }
+
+    @Override
+    public double calculateLateFee(int days) {
+        return days * 7;
+    }
+
+    @Override
+    public void displayInfo() {
+
+        super.displayInfo();
+
+        System.out.println("Author: " + author);
+        System.out.println("Number of Pages: " + numberOfPages);
+    }
+
+
+    @Override
+    public String toString() {
+
+        return super.toString() +
+               ", Author: " + author +
+               ", Number of Pages: " + numberOfPages;
+    }
+}
+
+
+
+class DigitalResource extends LibraryItem {
+
+    private final String fileFormat;
+    private final double fileSize;
+
+
+    DigitalResource(int itemID, String title, int publicationYear,
+                    String fileFormat, double fileSize) {
+
+        super(itemID, title, publicationYear);
+
+        this.fileFormat = fileFormat;
+        this.fileSize = fileSize;
+    }
+
+    @Override
+    public double calculateLateFee(int days) {
+        return days * 3;
+    }
+
+  
+    @Override
+    public void displayInfo() {
+
+        super.displayInfo();
+
+        System.out.println("File Format: " + fileFormat);
+        System.out.println("File Size: " + fileSize + " MB");
+    }
+
+    @Override
+    public String toString() {
+
+        return super.toString() +
+               ", File Format: " + fileFormat +
+               ", File Size: " + fileSize + " MB";
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        PrintedBook book = new PrintedBook(
+            101, "Java Programming", 2022,
+            "Ahmed Ali", 350
+        );
+
+        DigitalResource digital = new DigitalResource(
+            102, "Python Basics", 2023,
+            "PDF", 25.5
+        );
+
+
+
+        System.out.println("===== PRINTED BOOK =====");
+        book.displayInfo();
+
+        System.out.println();
+
+        System.out.println("===== DIGITAL RESOURCE =====");
+        digital.displayInfo();
+
+
+
+        System.out.println();
+
+        System.out.println("===== LATE FEES =====");
+
+        System.out.println("Printed Book Fee: "
+                + book.calculateLateFee(5) + " EGP");
+
+        System.out.println("Digital Resource Fee: "
+                + digital.calculateLateFee(5) + " EGP");
+
+
+
+        System.out.println();
+
+        System.out.println("===== DISCOUNT TEST =====");
+
+        System.out.println("Printed Book with 10% discount: "
+                + book.calculateLateFee(5, 0.10) + " EGP");
+
+        System.out.println("Digital Resource with 10% discount: "
+                + digital.calculateLateFee(5, 0.10) + " EGP");
+
+
+
+        System.out.println();
+
+        System.out.println("===== OBJECTS =====");
+
+        System.out.println(book);
+
+        System.out.println(digital);
+
+
+
+        System.out.println();
+
+        System.out.println("===== POLYMORPHISM =====");
+
+        LibraryItem item = new PrintedBook(
+            103, "C++ Programming", 2021,
+            "Mohamed Samir", 400
+        );
+
+        System.out.println("Late Fee: "
+                + item.calculateLateFee(5) + " EGP");
+
+    }
+}
+
